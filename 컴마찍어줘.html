@@ -24,6 +24,7 @@
 				<div id="activate2" class="ui icon button"> 0 넣어서 컴마찍어줘 </div>
 				<div id="activate3" class="ui icon button"> ' 붙혀서 컴마찍어줘 </div>
 				<div id="activate4" class="ui icon button"> 0 넣고 ' 붙혀서 컴마찍어줘 </div>
+				<div id="activate5" class="ui icon button"> +82 붙혀서 컴마찍어줘 </div>
 			</div>
 			<div class="field">
 				<label> Result </label>
@@ -80,6 +81,19 @@
 
 				for (var i = 0; i < as.length; i++) {
 					result = result + "'0" + as[i] + "'" + ","
+				}
+				$('#result').val(result.slice(0,-1));
+
+			});
+			$('#activate5').click(function(e) {
+				e.preventDefault();
+				const delim = '\n';
+			
+				let as = $('#phone').val().split(delim);
+				let result = "";
+
+				for (var i = 0; i < as.length; i++) {
+					result = result + "+82" + as[i] + ","
 				}
 				$('#result').val(result.slice(0,-1));
 
