@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>컴마찍어줘</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/components/button.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/components/grid.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/components/form.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/components/input.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/components/header.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/components/icon.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.4/components/form.min.js"></script>
+</head>
+<body>
+	<div class="ui form">
+		<h1 class="ui dividing header"> 컴마찍어줘 </h1>
+			<div class="field">	
+				<label> 번호 리스트 </label>
+				<textarea id="phone"></textarea>
+			</div>		
+			<div class="field">
+				<div id="activate" class="ui icon button"> 컴마찍어줘 </div>
+				<div id="activate2" class="ui icon button"> 0 넣어서 컴마찍어줘 </div>
+				<div id="activate3" class="ui icon button"> ' 붙혀서 컴마찍어줘 </div>
+				<div id="activate4" class="ui icon button"> 0 넣고 ' 붙혀서 컴마찍어줘 </div>
+			</div>
+			<div class="field">
+				<label> Result </label>
+				<textarea id="result"></textarea>
+			</div>
+		</h1>
+	</div>
+	<script>
+		$(document).ready(function() {
+			$('#activate').click(function(e) {
+				e.preventDefault();
+				const delim = '\n';
+			
+				let as = $('#phone').val().split(delim);
+				let result = "";
+
+				for (var i = 0; i < as.length; i++) {
+					result = result + as[i] + ","
+				}
+				$('#result').val(result.slice(0,-1));
+			});
+			$('#activate2').click(function(e) {
+				e.preventDefault();
+				const delim = '\n';
+			
+				let as = $('#phone').val().split(delim);
+				let result = "";
+
+				for (var i = 0; i < as.length; i++) {
+					result = result + "0" + as[i] + ","
+				}
+				$('#result').val(result.slice(0,-1));
+
+			});
+			$('#activate3').click(function(e) {
+				e.preventDefault();
+				const delim = '\n';
+			
+				let as = $('#phone').val().split(delim);
+				let result = "";
+
+				for (var i = 0; i < as.length; i++) {
+					result = result + "'" + as[i] + "'" + ","
+				}
+				$('#result').val(result.slice(0,-1));
+
+			});
+			$('#activate4').click(function(e) {
+				e.preventDefault();
+				const delim = '\n';
+			
+				let as = $('#phone').val().split(delim);
+				let result = "";
+
+				for (var i = 0; i < as.length; i++) {
+					result = result + "'0" + as[i] + "'" + ","
+				}
+				$('#result').val(result.slice(0,-1));
+
+			});
+		});
+	
+
+	</script>
+</body>
+</html>
