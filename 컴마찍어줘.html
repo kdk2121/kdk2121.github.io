@@ -28,6 +28,7 @@
 				<div id="activate8" class="ui icon button"> 0 넣고 "" 붙혀서 컴마찍어줘 </div>
 				<div id="activate5" class="ui icon button"> +82 붙혀서 컴마찍어줘 </div>
 				<div id="activate6" class="ui icon button"> - 빼고 컴마찍어줘 </div>
+				<div id="activate9" class="ui icon button"> 컴마없애줘 </div>
 			</div>
 			<div class="field">
 				<label> Result </label>
@@ -140,6 +141,18 @@
 				$('#result').val(result.slice(0,-1));
 
 			});
+ 			$('#activate9').click(function(e) {
+                                e.preventDefault();
+                                const delim = ',';
+
+                                let as = $('#result').val().split(delim);
+                                let result = "";
+
+                                for (var i = 0; i < as.length; i++) {
+                                        result = result + as[i] + "\n"
+                                }
+                                $('#phone').val(result.slice(0,-1));
+                        });
 		});
 	
 
