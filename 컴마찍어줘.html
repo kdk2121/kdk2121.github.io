@@ -28,7 +28,8 @@
 				<div id="activate8" class="ui icon button"> 0 넣고 "" 붙혀서 컴마찍어줘 </div>
 				<div id="activate5" class="ui icon button"> +82 붙혀서 컴마찍어줘 </div>
 				<div id="activate6" class="ui icon button"> - 빼고 컴마찍어줘 </div>
-				<div id="activate9" class="ui icon button"> 컴마없애줘 </div>
+				<div id="activate9" class="ui icon button"> 컴마없애줘 result->번호리스트</div>
+				<div id="activate10" class="ui icon button"> 컴마없애줘 번호리스트->result</div>
 			</div>
 			<div class="field">
 				<label> Result </label>
@@ -110,7 +111,7 @@
 				let result = "";
 
 				for (var i = 0; i < as.length; i++) {
-					result = (result + as[i].replace(/-/gi, "") + ",")
+					result = result + as[i].replace(/-/gi, "") + ','
 				}
 				$('#result').val(result.slice(0,-1));
 
@@ -149,9 +150,21 @@
                                 let result = "";
 
                                 for (var i = 0; i < as.length; i++) {
-                                        result = result + as[i] + "\n"
+                                        result = result + as[i] + '\n'
                                 }
                                 $('#phone').val(result.slice(0,-1));
+                        });
+			$('#activate10').click(function(e) {
+                                e.preventDefault();
+                                const delim = ',';
+
+                                let as = $('#phone').val().split(delim);
+                                let result = "";
+
+                                for (var i = 0; i < as.length; i++) {
+                                        result = result + as[i] + '\n'
+                                }
+                                $('#result').val(result.slice(0,-1));
                         });
 		});
 	
