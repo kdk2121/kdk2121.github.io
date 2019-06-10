@@ -109,7 +109,7 @@
 				let result = "";
 
 				for (var i = 0; i < as.length; i++) {
-					result = result + "\n" + as[i]
+					result = result + as[i].replace(/-/gi, "") + ","
 				}
 				$('#result').val(result.slice(0,-1));
 
