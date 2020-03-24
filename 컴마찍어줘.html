@@ -30,7 +30,7 @@
 				<div id="activate6" class="ui icon button"> - 빼고 컴마찍어줘 </div>
 				<div id="activate9" class="ui icon button"> 컴마없애줘 result->번호리스트</div>
 				<div id="activate10" class="ui icon button"> 컴마없애줘 번호리스트->result</div>
-				<div id="activate11" class="ui icon button"> 컴마 두번 </div>
+				<div id="activate11" class="ui icon button"> 컴마두번 </div>
 			</div>
 			<div class="field">
 				<label> Result </label>
@@ -177,7 +177,7 @@
 				for (var i = 0; i < as.length; i++) {
 					result = result + as[i] + ",,"
 				}
-				$('#result').val(result.slice(0,-1));
+				$('#result').val(result.slice(0,-2));
                         });
 		});
 	
