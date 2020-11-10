@@ -31,6 +31,8 @@
 				<div id="activate9" class="ui icon button"> 컴마없애줘 result->번호리스트</div>
 				<div id="activate10" class="ui icon button"> 컴마없애줘 번호리스트->result</div>
 				<div id="activate11" class="ui icon button"> 컴마두번 </div>
+				<div id="activate12" class="ui icon button"> 이름마스킹점 </div>
+				<div id="activate13" class="ui icon button"> 폰번호마스킹점 </div>
 			</div>
 			<div class="field">
 				<label> Result </label>
@@ -179,6 +181,44 @@
 				}
 				$('#result').val(result.slice(0,-2));
                         });
+			$('#activate12').click(function(e) {
+				e.preventDefault();
+				const delim = '\n';
+			
+				let as = $('#phone').val().split(delim);
+				let result = "";
+
+				for (var i = 0; i < as.length; i++) {
+					if(as[i].length < 5){
+						result = result + as[i].replace(/.$/,"*") + "\n"
+					}
+					else{
+						result = result + as[i].slice(0,3)+ "*".repeat(as[i].length-3) + "\n"
+					}
+					
+				}
+				$('#result').val(result);
+			});			
+			$('#activate13').click(function(e) {
+				e.preventDefault();
+				const delim = '\n';
+			
+				let as = $('#phone').val().split(delim);
+				let result = "";
+
+				for (var i = 0; i < as.length; i++) {
+					var originStr = as[i];
+					let maskingStr = "";
+					if (originStr.indexOf("-")<0){
+						maskingStr = originStr.slice(0,5)+"**"+originStr.slice(7,9)+"**"
+					}
+					else {
+						maskingStr = originStr.slice(0,6)+"**"+originStr.slice(8,11)+"**"
+					}
+					result = result + maskingStr + "\n"
+				}
+				$('#result').val(result);
+			});		
 		});
 	
 
