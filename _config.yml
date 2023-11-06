@@ -1,2 +1,7 @@
-theme: jekyll-theme-cayman
+
+- theme: minima
++ remote_theme: jekyll/minima
+
+  plugins:
++ - jekyll-remote-theme
 google_analytics: 'G-1VKNW54BDX'
