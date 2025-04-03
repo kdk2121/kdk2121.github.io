@@ -33,6 +33,7 @@
 				<div id="activate11" class="ui icon button"> 컴마두번 </div>
 				<div id="activate12" class="ui icon button"> 이름마스킹점 </div>
 				<div id="activate13" class="ui icon button"> 폰번호마스킹점 </div>
+				<div id="activate14" class="ui icon button"> || 넣어줘 </div>
 			</div>
 			<div class="field">
 				<label> Result </label>
@@ -218,7 +219,19 @@
 					result = result + maskingStr + "\n"
 				}
 				$('#result').val(result);
-			});		
+			});
+			$('#activate14').click(function(e) {
+				e.preventDefault();
+				const delim = '\n';
+			
+				let as = $('#phone').val().split(delim);
+				let result = "";
+			
+				for (var i = 0; i < as.length; i++) {
+					result = result + as[i] + "||"
+				}
+				$('#result').val(result.slice(0,-2));
+			});
 		});
 	
 
