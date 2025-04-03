@@ -34,6 +34,7 @@
 				<div id="activate12" class="ui icon button"> 이름마스킹점 </div>
 				<div id="activate13" class="ui icon button"> 폰번호마스킹점 </div>
 				<div id="activate14" class="ui icon button"> " 빼고 긴빈칸 없애줘 </div>
+				<div id="activate15" class="ui icon button"> || 넣어줘 </div>
 			</div>
 			<div class="field">
 				<label> Result </label>
@@ -231,6 +232,18 @@
 					result = result + as[i].replace(/"/gi, "").replace(/	/gi, "") + ','
 				}
 				$('#result').val(result.slice(0,-1));
+			});
+			$('#activate15').click(function(e) {
+				e.preventDefault();
+				const delim = '\n';
+			
+				let as = $('#phone').val().split(delim);
+				let result = "";
+			
+				for (var i = 0; i < as.length; i++) {
+					result = result + as[i] + "||"
+				}
+				$('#result').val(result.slice(0,-2));
 			});
 		});
 	
